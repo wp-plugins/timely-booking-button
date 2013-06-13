@@ -21,8 +21,8 @@ No FAQ at present
 
 == Screenshots ==
 
-1. /assets/tbb-widget-sidebar.png
-2. /assets/tbb-admin-settings.png
+1. Administration settings
+2. Booking button
 
 == Changelog ==
 
