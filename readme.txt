@@ -15,7 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 
-Adds a "Book Now" button for the Timely appointment management system to your WordPress site. For more information on Timely visit www.gettimely.com.
+Adds a "Book Now" button for the Timely appointment management system to your WordPress site. More info: www.gettimely.com.
 
 
 
