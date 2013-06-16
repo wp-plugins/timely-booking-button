@@ -28,15 +28,16 @@ Adds a "Book Now" button for the Timely appointment management system to your Wo
 
 3. Add the widget using one of the following methods. Note use only one method using multiple methods will cause conflicts with the buttons.
 
-- Via the Appearance > Widgets admin menu
+* Via the Appearance > Widgets admin menu
 
-- Place <?php do_action('tbb_widget_output()'); ?> in your templates
+* Place <?php do_action('tbb_widget_output()'); ?> in your templates
 
-- Use the shortcode [tbb-button] in your pages or posts
+* Use the shortcode [tbb-button] in your pages or posts
 
 == Frequently Asked Questions ==
 
-1. What is the Timely Booking Button?
+**What is the Timely Booking Button?**
+
 Timely is an easy to use great looking appointment management system. It works on any device anywhere providing flexible scheduling for business owners and easy online booking for customers. More info: www.gettimely.com
 
 
