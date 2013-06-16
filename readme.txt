@@ -42,7 +42,6 @@ Timely is an easy to use great looking appointment management system. It works o
 
 == Screenshots ==
 
-
 1. Administration settings
 
 2. Booking button
