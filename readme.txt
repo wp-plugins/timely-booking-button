@@ -26,15 +26,18 @@ Adds a "Book Now" button for the Timely appointment management system to your Wo
 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-3. Add the widget via the Appearance > Widgets admin menu or place `&lt;?php do_action('tbb_widget_output()'); ?&gt;` in your templates
+3. Add the widget using one of the following methods. Note use only one method using multiple methods will cause conflicts with the buttons.
+
+	a. Via the Appearance > Widgets admin menu 
+	b. Place <?php do_action('tbb_widget_output()'); ?> in your templates
+	c. Use the shortcode [tbb-button] in your pages or posts
 
 
 
 == Frequently Asked Questions ==
 
-
-No FAQ at present
-
+1. What is the Timely Booking Butto?
+Timely is an easy to use great looking appointment management system. It works on any device anywhere providing flexible scheduling for business owners and easy online booking for customers. More info: www.gettimely.com
 
 
 == Screenshots ==

@@ -68,5 +68,7 @@ add_action("plugins_loaded", "tbb_init");
 add_action('admin_menu', 'tbb_admin_actions');
 add_action('wp_ajax_tbb_account_check', 'tbb_account_check_callback');
 
+add_shortcode('tbb-button', 'tbb_widget_output');
+
 ?>
  
