@@ -47,7 +47,7 @@ function tbb_account_check_callback() {
 	die(); // this is required to return a proper result
 }
 
-function admin_register_head() {
+function tbb_admin_register_head() {
     $siteurl = get_option('siteurl');
     $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/timely-booking-button.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
@@ -63,7 +63,7 @@ $plugin = plugin_basename( __FILE__ );
 
 add_filter( "plugin_action_links_$plugin", 'tbb_admin_add_settings_link' );
 
-add_action('admin_head', 'admin_register_head');
+add_action('admin_head', 'tbb_admin_register_head');
 add_action("plugins_loaded", "tbb_init"); 
 add_action('admin_menu', 'tbb_admin_actions');
 add_action('wp_ajax_tbb_account_check', 'tbb_account_check_callback');
@@ -71,4 +71,3 @@ add_action('wp_ajax_tbb_account_check', 'tbb_account_check_callback');
 add_shortcode('tbb-button', 'tbb_widget_output');
 
 ?>
- 
