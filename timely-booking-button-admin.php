@@ -62,8 +62,7 @@ jQuery(document).ready(function($) {
    $('.tbb-account').live('input', function() {   
 	    var data = {
 		    action: 'tbb_account_check',
-            tbb_account: $(this).val(),
-		    whatever: 1234
+            tbb_account: $(this).val()		    
 	    };
 
 	    // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
