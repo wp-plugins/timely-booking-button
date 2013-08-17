@@ -52,3 +52,5 @@ Timely is an easy to use great looking appointment management system. It works o
 
 = 0.1 = 
 * First version of the plugin allows validated entry of account name and selection of button style
+= 0.2 = 
+* Updated path to Admin preview button image

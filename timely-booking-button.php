@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/extend/plugins/timely-booking-button/
  * Description: Adds a "Book Now" button for the Timely appointment management system to your WordPress site
  * Author: Timely Team
- * Version: 0.1
+ * Version: 0.2
  * Author URI: http://www.gettimely.com/
  */
  
