@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
     });
     
     $('.tbb-colour').change( function() {
-        $('.tbb-colour-preview img').attr('src', 'http://bookings.gettimely.com/images/book-buttons/book-now-' + $(this).val() + '.png');    
+        $('.tbb-colour-preview img').attr('src', 'http://book.gettimely.com/images/book-buttons/book-now-' + $(this).val() + '.png');    
     });
     
     jQuery('.tbb-account').trigger('input');
