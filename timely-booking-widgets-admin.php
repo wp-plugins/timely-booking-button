@@ -1,12 +1,18 @@
 <?php
     $tbbaccount = get_option('tbb_account'); 
     $tbbcolour = get_option('tbb_colour');
+    $tbwwidth = get_option('tbw_width');
+    $tbwheight = get_option('tbw_height');
 
     if($_POST['tbb_hidden'] == 'Y' && $_POST['tbb_account_valid'] == 'true') {  
         update_option('tbb_account', $_POST['tbb_account']);  
         update_option('tbb_colour', $_POST['tbb_colour']);
+        update_option('tbw_width', $_POST['tbw_width']);
+        update_option('tbw_height', $_POST['tbw_height']);
         $tbbaccount = get_option('tbb_account');
         $tbbcolour = get_option('tbb_colour');
+        $tbwwidth = get_option('tbw_width');
+        $tbwheight = get_option('tbw_height');
         ?>        
         <div class="updated">
         <p><strong><?php _e('Options saved.' ); ?>
@@ -21,14 +27,16 @@
             </strong></p></div>            
         <?php            
         } 
-    }     
+    }
+    
+    if ($tbwwidth == '') $tbwwidth = "480";
+    if ($tbwheight == '') $tbwheight = "600";    
     
 ?>  
 
-<div class="wrap">
-	<?php    echo "<h2>" . __( 'Timely Book Now Button Options' ) . "</h2>"; ?>
-			
-	<form name="oscimp_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+<form name="oscimp_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+    <div class="wrap">
+        <?php    echo "<h2>" . __( 'Timely Booking Widget Options' ) . "</h2>"; ?>
 		<input type="hidden" name="tbb_hidden" value="Y">
         <input type="hidden" name="tbb_account_valid" value="N">
 		<?php    echo "<h4>" . __( 'Account Name' ) . "</h4>"; ?>
@@ -37,8 +45,13 @@
             <input type="text" name="tbb_account" value="<?php echo $tbbaccount; ?>" size="20" class="tbb-account">            
             <span id="tbb-account-correct" class="tbb-account-status" style="display: none;">Valid account</span>
             <span id="tbb-account-wrong" class="tbb-account-status" style="display: none;">Invalid account</span>
-        </p>        
-        <?php    echo "<h4>" . __( 'Button Colour' ) . "</h4>"; ?>
+        </p>  
+        <br />
+		<hr />	
+    </div>
+
+    <div class="wrap">
+	    <?php    echo "<h4>" . __( 'Button Colour' ) . "</h4>"; ?>
         <p>
             <select name="tbb_colour" class="tbb-colour">
                 <option value="light" <?php echo ($tbbcolour == 'light' ? 'selected' : ''); ?>>Light
@@ -49,12 +62,28 @@
             </span>
         </p>
         <br />
+		<hr />	
+    </div>
+
+    <div class="wrap">
+		<?php    echo "<h4>" . __( 'Widget Size' ) . "</h4>"; ?>
+        <label for="tbw_width">Width: </label>
+        <input type="number" class="tbw-input-mini" step="10" value="<?php echo $tbwwidth; ?>" id="tbw_width" name="tbw_width" min="0">
+        <label for="tbw_height">Height: </label>
+        <input type="number" class="tbw-input-mini" step="10" value="<?php echo $tbwheight; ?>" id="tbw_height" name="tbw_height" min="0">
+        <br />
+        <?php    echo "<h4>" . __( 'Preview' ) . "</h4>"; ?>
+        <div>
+            <iframe src="http://<?php echo $tbbaccount; ?>.gettimely.com/book/embed" scrolling="no" id="timelyWidget" style="width: <?php echo $tbwwidth; ?>px; height: <?php echo $tbwheight; ?>px; border: 1px solid #4f606b;"></iframe>
+        </div>
+        <br />
 		<hr />		
-		<p class="submit">
+    </div>
+    
+    <p class="submit">
 		<input type="submit" name="Submit" value="<?php _e('Update Options') ?>" />
-		</p>
-	</form>
-</div>
+		</p>	
+</form>
 
 <script type="text/javascript" >
 jQuery(document).ready(function($) {
@@ -85,6 +114,11 @@ jQuery(document).ready(function($) {
     
     $('.tbb-colour').change( function() {
         $('.tbb-colour-preview img').attr('src', 'http://book.gettimely.com/images/book-buttons/book-now-' + $(this).val() + '.png');    
+    });
+    
+    $('.tbw-input-mini').change(function() {
+        var style = $(this).attr('id') == 'tbw_width' ? 'width' : 'height';
+        $('#timelyWidget').css(style, $(this).val());        
     });
     
     jQuery('.tbb-account').trigger('input');

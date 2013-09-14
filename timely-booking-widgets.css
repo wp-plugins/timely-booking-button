@@ -41,3 +41,8 @@ div.tbb-update-error {
     background-color: #f9c6c6;
     border-color: #b94a48;
 }
+
+.tbw-input-mini {
+    width: 50px;
+    margin-right: 20px;
+}

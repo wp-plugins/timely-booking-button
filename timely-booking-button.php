@@ -1,24 +1,25 @@
 <?php
 /*
- * Plugin Name: Timely Booking Button
+ * Plugin Name: Timely Booking Widgets
  * Plugin URI: http://wordpress.org/extend/plugins/timely-booking-button/
- * Description: Adds a "Book Now" button for the Timely appointment management system to your WordPress site
+ * Description: Add booking widgets for the Timely appointment management system to your WordPress site
  * Author: Timely Team
- * Version: 0.2
+ * Version: 0.3
  * Author URI: http://www.gettimely.com/
  */
  
  function tbb_admin_actions() {  
-    add_options_page("Timely", "Timely", 1, "timely-booking-button", "tbb_admin");  
+    add_options_page("Timely", "Timely", 1, "timely-booking-widgets", "tbb_admin");  
 }  
 
 function tbb_admin() {
-    include('timely-booking-button-admin.php');
+    include('timely-booking-widgets-admin.php');
 }
 
 function tbb_init()
 {
   wp_register_sidebar_widget('tbb-widget','Timely Booking Button', 'tbb_widget_output', array ( 'description' => 'Add a booking button for your Timely account'));     
+  wp_register_sidebar_widget('tbw-widget','Timely Booking Widget', 'tbw_widget_output', array ( 'description' => 'Add a booking widget for your Timely account'));     
 }
  
 function tbb_widget_output() {    
@@ -38,6 +39,21 @@ function tbb_widget_output() {
     }    
 }
 
+function tbw_widget_output() {    
+    $width = get_option('tbw_width');
+    $height = get_option('tbw_height'); 
+    $account = get_option('tbb_account');
+    
+    if ($account != "") {
+        extract($args);
+    
+        echo $before_widget;?>
+        <iframe src="http://<?php echo $account; ?>.gettimely.com/book/embed" scrolling="no" id="timelyWidget" style="width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; border: 1px solid #4f606b;"></iframe>
+    <?php
+        echo $after_widget;
+    }    
+}
+
 function tbb_account_check_callback() {
     $url = "http://app.gettimely.com/Register/GetSubdomainAvailability/" . $_POST['tbb_account'];	
     $response = file_get_contents($url);
@@ -49,12 +65,12 @@ function tbb_account_check_callback() {
 
 function tbb_admin_register_head() {
     $siteurl = get_option('siteurl');
-    $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/timely-booking-button.css';
+    $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/timely-booking-widgets.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 }
 
 function tbb_admin_add_settings_link( $links ) {
-    $settings_link = '<a href="options-general.php?page=timely-booking-button">Settings</a>';
+    $settings_link = '<a href="options-general.php?page=timely-booking-widgets">Settings</a>';
   	array_push( $links, $settings_link );
   	return $links;
 }
@@ -69,5 +85,6 @@ add_action('admin_menu', 'tbb_admin_actions');
 add_action('wp_ajax_tbb_account_check', 'tbb_account_check_callback');
 
 add_shortcode('tbb-button', 'tbb_widget_output');
+add_shortcode('tbw-widget', 'tbw_widget_output');
 
 ?>
