@@ -1,4 +1,4 @@
-=== Timely Booking Button ===
+=== Timely Booking Widgets ===
 
 Contributors: TimelySystem
 
