@@ -55,7 +55,7 @@ function tbw_widget_output() {
 }
 
 function tbb_account_check_callback() {
-    $url = "http://app.gettimely.com/Register/GetSubdomainAvailability/" . $_POST['tbb_account'];	
+    $url = "https://app.gettimely.com/Register/GetSubdomainAvailability/" . $_POST['tbb_account'];	
     $response = file_get_contents($url);
     
     echo ($response == "false" ? "correct" : "wrong");
