@@ -39,7 +39,7 @@ function tbb_widget_output() {
     }    
 }
 
-function tbw_widget_output() {    
+function tbw_widget_output($args) {    
     $width = get_option('tbw_width');
     $height = get_option('tbw_height'); 
     $account = get_option('tbb_account');
