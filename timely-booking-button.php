@@ -22,7 +22,7 @@ function tbb_init()
   wp_register_sidebar_widget('tbw-widget','Timely Booking Widget', 'tbw_widget_output', array ( 'description' => 'Add a booking widget for your Timely account'));     
 }
  
-function tbb_widget_output() {    
+function tbb_widget_output($args) {    
     $account = get_option('tbb_account');
     $colour = get_option('tbb_colour'); 
     
