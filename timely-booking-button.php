@@ -27,15 +27,21 @@ function tbb_widget_output($args) {
     $colour = get_option('tbb_colour'); 
     
     if ($account != "") {
-        extract($args);
+        if (is_array($args)) {
+            extract($args);
+        }
     
-        echo $before_widget;?>
+        if (isset($before_widget)) {
+            echo $before_widget;
+        }?>
         <div style='padding: 20px 0;'>
         <script id="timelyScript" src="http://bookings.gettimely.com/widget/book-button.js"></script>
         <script>var timelyButton = new timelyButton("<?php echo $account; ?>"<?php echo ( $colour == 'dark' ? ', { style : "dark" }' : ''); ?>);</script>
         </div>
     <?php
-        echo $after_widget;
+        if (isset($after_widget)) {
+            echo $after_widget;
+        }
     }    
 }
 
