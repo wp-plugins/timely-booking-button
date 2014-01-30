@@ -56,11 +56,17 @@ function tbw_widget_output($args) {
 
 function tbb_account_check_callback() {
     $url = "https://app.gettimely.com/Register/GetSubdomainAvailability/" . $_POST['tbb_account'];	
-    $response = file_get_contents($url);
+    $curl = curl_init();
     
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+    
+    $response = curl_exec($curl);    
     echo ($response == "false" ? "correct" : "wrong");
-
-	die(); // this is required to return a proper result
+    
+    die(); // this is required to return a proper result
 }
 
 function tbb_admin_register_head() {
