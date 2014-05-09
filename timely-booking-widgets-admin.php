@@ -1,32 +1,35 @@
 <?php
-    $tbbaccount = get_option('tbb_account'); 
+    $tbbaccount = trim(get_option('tbb_account')); 
     $tbbcolour = get_option('tbb_colour');
     $tbwwidth = get_option('tbw_width');
     $tbwheight = get_option('tbw_height');
 
-    if($_POST['tbb_hidden'] == 'Y' && $_POST['tbb_account_valid'] == 'true') {  
-        update_option('tbb_account', $_POST['tbb_account']);  
-        update_option('tbb_colour', $_POST['tbb_colour']);
-        update_option('tbw_width', $_POST['tbw_width']);
-        update_option('tbw_height', $_POST['tbw_height']);
-        $tbbaccount = get_option('tbb_account');
-        $tbbcolour = get_option('tbb_colour');
-        $tbwwidth = get_option('tbw_width');
-        $tbwheight = get_option('tbw_height');
-        ?>        
-        <div class="updated">
-        <p><strong><?php _e('Options saved.' ); ?>
-        </strong></p></div>    
-    <?php
-    } else {
-        if ($_POST['tbb_account_valid'] == 'false') {
-            $tbbaccount = $_POST['tbb_account'];
-            ?>
-            <div class="updated tbb-update-error">
-            <p><strong><?php _e('Error with your account name options not updated' ); ?>
-            </strong></p></div>            
-        <?php            
-        } 
+    if (isset($POST))
+    {    
+        if(array_key_exists('tbb_hidden', $POST) && array_key_exists('tbb_account_valid', $POST)  && $_POST['tbb_hidden'] == 'Y' && $_POST['tbb_account_valid'] == 'true') {  
+            update_option('tbb_account', trim($_POST['tbb_account']));  
+            update_option('tbb_colour', $_POST['tbb_colour']);
+            update_option('tbw_width', $_POST['tbw_width']);
+            update_option('tbw_height', $_POST['tbw_height']);
+            $tbbaccount = get_option('tbb_account');
+            $tbbcolour = get_option('tbb_colour');
+            $tbwwidth = get_option('tbw_width');
+            $tbwheight = get_option('tbw_height');
+            ?>        
+            <div class="updated">
+            <p><strong><?php _e('Options saved.' ); ?>
+            </strong></p></div>    
+        <?php
+        } else {
+            if (array_key_exists('tbb_account_valid', $POST) && $_POST['tbb_account_valid'] == 'false') {
+                $tbbaccount = trim($_POST['tbb_account']);
+                ?>
+                <div class="updated tbb-update-error">
+                <p><strong><?php _e('Error with your account name options not updated' ); ?>
+                </strong></p></div>            
+            <?php            
+            } 
+        }
     }
     
     if ($tbwwidth == '') $tbwwidth = "480";
@@ -91,7 +94,7 @@ jQuery(document).ready(function($) {
    $('.tbb-account').live('input', function() {   
 	    var data = {
 		    action: 'tbb_account_check',
-            tbb_account: $(this).val()		    
+            tbb_account: $(this).val().trim()		    
 	    };
 
 	    // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
