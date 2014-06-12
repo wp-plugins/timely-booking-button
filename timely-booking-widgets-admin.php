@@ -4,9 +4,9 @@
     $tbwwidth = get_option('tbw_width');
     $tbwheight = get_option('tbw_height');
 
-    if (isset($POST))
+    if (isset($_POST))
     {    
-        if(array_key_exists('tbb_hidden', $POST) && array_key_exists('tbb_account_valid', $POST)  && $_POST['tbb_hidden'] == 'Y' && $_POST['tbb_account_valid'] == 'true') {  
+        if(array_key_exists('tbb_hidden', $_POST) && array_key_exists('tbb_account_valid', $_POST)  && $_POST['tbb_hidden'] == 'Y' && $_POST['tbb_account_valid'] == 'true') {  
             update_option('tbb_account', trim($_POST['tbb_account']));  
             update_option('tbb_colour', $_POST['tbb_colour']);
             update_option('tbw_width', $_POST['tbw_width']);
@@ -21,7 +21,7 @@
             </strong></p></div>    
         <?php
         } else {
-            if (array_key_exists('tbb_account_valid', $POST) && $_POST['tbb_account_valid'] == 'false') {
+            if (array_key_exists('tbb_account_valid', $_POST) && $_POST['tbb_account_valid'] == 'false') {
                 $tbbaccount = trim($_POST['tbb_account']);
                 ?>
                 <div class="updated tbb-update-error">
