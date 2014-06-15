@@ -50,13 +50,20 @@ function tbw_widget_output($args) {
     $height = get_option('tbw_height'); 
     $account = get_option('tbb_account');
     
-    if ($account != "") {
-        extract($args);
+    if ($account != "") {        
+        if (is_array($args))
+        {
+            extract($args);
+        }
     
-        echo $before_widget;?>
+        if (isset($before_widget)) {
+            echo $before_widget;
+        }?>
         <iframe src="http://<?php echo $account; ?>.gettimely.com/book/embed" scrolling="no" id="timelyWidget" style="width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; border: 1px solid #4f606b;"></iframe>
     <?php
-        echo $after_widget;
+        if (isset($after_widget)) {
+            echo $after_widget;
+        }
     }    
 }
 
