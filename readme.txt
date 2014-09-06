@@ -5,7 +5,7 @@ Contributors: TimelySystem
 Tags: timely, appointments, booking, online booking, online bookings, booking system, scheduling, appointment scheduling, appointment system, calendar, calendar bookings, appointment booking
 Requires at least: 3.0.1
 
-Tested up to: 3.9
+Tested up to: 4.0
 
 Stable tag: trunk
 
