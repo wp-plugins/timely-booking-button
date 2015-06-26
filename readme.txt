@@ -15,51 +15,103 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 
-Adds a "Booking Widget" and/or a "Book Now" button for the Timely appointment management system to your WordPress site. More info: www.gettimely.com.
+The Timely booking widget is a plugin to add our online booking feature to your WordPress site.  Use it for both your “Booking Widget” and/or your “Book Now” button.
 
+If you use Wordpress to manage your website and you use the Timely booking calendar to run your business, you can make use of this plugin to include a booking button or widget on your website. Widgets (plugins) are a simple way of making your Wordpress site look great. The best part is that we've done all the hard work for you! 
+
+With this plugin you can quickly and easily connect your Timely account to your WordPress site. 
+
+Timely - Smart booking software
+www.gettimely.com
+
+Online booking features:
+
+Easily book an appointment or class in a few clicks. No login is required.
+Customers can choose from multiple locations.
+Customers can book multiple services in the same appointment.  
+Set your available appointment time by rostering staff on as working.
+Set a booking capacity for classes.
+Add padding time (for prep or setup time) before and after bookings.
+Take online payment for appointments using PayPal, Stripe, Pin Payments, DPS Payment Express, Authorize.Net or eWay.
+Send a booking confirmation using SMS or email. 
+Sync your bookings to your iCal or Google Calendar.
+Set a lead time for appointments. Such as: Can only book 48 hours in advance. 
+All your bookings is kept on one beautiful calendar that is easy to navigate.
+
+Thousands of people around the world love using Timely to run their bookings! It’s easy to use, doesn't cost you a fortune and just works. Timely is packed with the business features you need to run your daily activities, plus it’s hosted in the cloud making accessing your account easy and convenient.
+
+For more information visit our site: http://www.gettimely.com/
+Or get in touch with us: hello@gettimely.com
 
 
 == Installation ==
 
+How do I set it up?
 
-1. Upload the `timely-booking-button` directory to the `/wp-content/plugins/` directory
+To instal it on your directory, follow these steps:
+Upload the timely-booking-button directory to the /wp-content/plugins/directory
+Activate the plugin through the 'Plugins' menu in WordPress
 
-2. Activate the plugin through the 'Plugins' menu in WordPress
 
-3. Add the widget using one of the following methods. Note use only one method using multiple methods will cause conflicts with the widgets.
+Log in to your Wordpress site to get started. Then, follow these steps:
 
-* Via the Appearance > Widgets admin menu
+On your Dashboard click the 'Plugins' and 'Add new'
+Search for the "Timely booking" plugin
+Click the Install Now link
 
-* Place <?php do_action('tbb_widget_output()'); ?> for the Booking Button or <?php do_action('tbw_widget_output()'); ?> for the Booking Widget in your templates
+Activate your plugin from the widgets menu (Appearance > Widgets admin)
 
-* To display the Timely Booking Button Use the shortcode [tbb-button] in your pages or posts
+Once the plugin has been installed, click 'Activate Plugin'
+Under Installed Plugins you'll be able to edit the settings for the Timely plugin. Make sure you use the business name that is displayed on your mini website (e.g. doedayspa)
+Once the plugin has been installed it will be available under your widgets. You'll be able to add the booking button to your sidebar, or add the widget where you like. 
 
-* To display the Timely Booking Widget Use the shortcode [tbw-widget] in your pages or posts
+Other ways to use the Timely booking widget
+
+- Place for the Booking Button or the Booking Widget in your templates
+- Use the shortcode on your Pages or Posts:
+	- Timely Book Now Button [tbb-button] 
+	- Timely Booking Widget [tbw-widget]
+
 
 == Frequently Asked Questions ==
 
-**What is Timely?**
+What is Timely?
+Timely is smart booking software that will save you time and money. It looks beautiful, is backed by world class support and has everything you need to run your business. Timely works on any device anywhere providing flexible scheduling for business owners and easy online booking for customers. More info: http://www.gettimely.com
 
-Timely is an easy to use great looking appointment management system. It works on any device anywhere providing flexible scheduling for business owners and easy online booking for customers. More info: www.gettimely.com
+What is the Timely Booking Button?
+The Timely booking button allows you to display a button on your website labelled "Book Now". When the button is clicked the Timely online booking process opens for customers to make new bookings. This process happens on top of your website page - meaning your clients never leave your website.
 
-**What is the Timely Booking Button?**
+What is the Timely Booking Widget?
+The Timely booking widget allows you to embed the Timely online booking process directly into your website. Customers can make new bookings right there on your web page.
 
-The Timely booking button allows you to display a button on your website labelled "Book Now". When the button is clicked the Timely online booking process opens for customers to make new bookings.
+Do I need a Timely account?
+Yes, you will need a Timely subscription. You can get started with our 30 day free trial. And even install this plugin while on the trial. Get in touch if you have any questions: hello@gettimely.com
 
-**What is the Timely Booking Widget?**
-
-The Timely booking widget allows you to embed the Timely online booking process directly into your website. Customers can make new bookings without leaving your website.
 
 == Screenshots ==
 
-1. Administration settings
+1. Calendar screen
 
-2. Booking button
+2. Calendar screen
 
-3. Booking widget
+3. Appointment notifications
+
+4. Book now button
+
+5. Booking > Select location
+
+6. Booking > Select service
+
+7. Booking > Select date
+
+8. Booking > Customer details
+
+9. Booking > Confirmation
+
+10. Overview
+
 
 == Changelog ==
-
 
 = 0.1 = 
 * First version of the plugin allows validated entry of account name and selection of button style
